@@ -1,0 +1,18 @@
+:host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.temp-current {
+    font-size: 25px;
+}
+
+.temp-status {
+    font-size: 22px;
+}
+
+.weather-img {
+    top: 10px;
+    position: relative;
+}

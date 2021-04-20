@@ -1,0 +1,16 @@
+.toolbar-icon {
+    padding: 0 14px;
+}
+
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+
+.fitlers{
+    color: black
+}
+
+.navbar{
+    width: 600px;
+    margin: auto;
+}

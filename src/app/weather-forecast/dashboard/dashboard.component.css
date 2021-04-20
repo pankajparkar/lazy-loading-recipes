@@ -1,0 +1,25 @@
+.dashboar-tab-group {
+    border: 1px solid #e8e8e8;
+}
+
+.dashboar-tab-content {
+    padding: 16px;
+}
+
+.temp {
+    font-size: 20px;
+}
+
+.temp-title {
+    flex-direction: row;
+    line-height: 50px;
+}
+
+.description {
+    line-height: 50px;  
+}
+
+.temp-status {
+    font-size: 25px;
+}
+

@@ -1,0 +1,12 @@
+<small>
+  min
+</small>
+<span class="temp">{{cast.main.temp_min | number: '.2-2'}}</span>&#8451; &nbsp;-&nbsp;
+<small>
+  max
+</small>
+<span class="temp">{{cast.main.temp_max | number: '.2-2'}}</span>&#8451;
+<span *ngIf="cast.clouds && cast.clouds.all > 0">{{cast.clouds.all}}</span>&nbsp;
+<span *ngIf="cast.rain">{{cast.rain['3h']}}&nbsp;</span>
+<span *ngIf="cast.wind">{{cast.wind.main}}&nbsp;</span>
+{{cast.dt_txt | date}}

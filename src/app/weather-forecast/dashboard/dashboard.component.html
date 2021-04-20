@@ -1,0 +1,22 @@
+<div class="container">
+  <mat-accordion class="example-headers-align">
+    <h1 mat-subheader>
+      <wc-weather-forecast [weather]="weatherCast" [headingStart]="headingStart" [date]="date"></wc-weather-forecast>
+    </h1>
+    <ng-container *ngFor="let cast of weatherCast?.list; let index = index">
+      <mat-expansion-panel *ngIf="index % 8 == 0" [expanded]="selected == index" (opened)="selectAccordion(index)" hideToggle="false">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="temp-title">
+            <wc-weather-forecast-city [cast]="cast"></wc-weather-forecast-city>
+          </mat-panel-title>
+          <mat-panel-description class="description">
+            <wc-weather-forecast-details [cast]="cast"></wc-weather-forecast-details>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-divider></mat-divider>
+        <wc-weather-forecast-history [history]="weatherCast?.list" [start]="index"></wc-weather-forecast-history>
+      </mat-expansion-panel>
+    </ng-container>
+
+  </mat-accordion>
+</div>

@@ -1,0 +1,33 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+.temp-current-small {
+    font-size: 25px;
+}
+
+.chip-right{
+    float: right;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-chip{
+    transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    display: inline-flex;
+    padding: 5px 8px;
+    border-radius: 24px;
+    align-items: center;
+    cursor: default;
+    background-color: #e0e0e0;
+    color: rgba(0,0,0,.87);
+}

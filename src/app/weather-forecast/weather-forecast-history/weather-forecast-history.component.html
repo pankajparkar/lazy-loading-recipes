@@ -1,0 +1,9 @@
+<ul>
+  <h3>Details with 3hrs difference</h3>
+  <li *ngFor="let item of history | slice: startIndex : endIndex">
+    <img class="weather-widget__img" src="assets/weather-icons/{{item.weather[0].icon}}.png" alt="Weather London , GB" />
+    <span class="temp-current-small">{{item.main.temp  | number: '.2-2'}}</span>&#8451;
+    <span class="spacer"></span>
+    <div class="custom-chip">{{item.dt_txt | date: 'hh:mm a'}}</div>
+  </li>
+</ul>
