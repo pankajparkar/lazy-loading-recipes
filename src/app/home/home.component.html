@@ -1,38 +1,44 @@
 <mat-grid-list cols="2" rowHeight="2:1">
-    <mat-grid-tile>
+    <mat-grid-tile [rowspan]="1">
         <mat-card>
             <mat-card-content>
-                <a routerLink="/route1/component1">
-                    Lazy Load and Custom Preloading 
+                <a routerLink="/dynamic-component-loading">
+                    Dynamic Component Loading
+                    <mat-icon>check_circle</mat-icon>
                 </a>
             </mat-card-content>
         </mat-card>
+        <a routerLink="/dynamic-component-loading">
+        </a>
     </mat-grid-tile>
-    <mat-grid-tile>
+    <mat-grid-tile [rowspan]="1">
         <mat-card>
             <mat-card-content>
                 <a routerLink="/route1/component1">
-                    Dynamic Component Loading + SCAM
+                    Dynamic Component Loading (import + SCAM)
+                    <mat-icon>check_circle</mat-icon>
                 </a>
             </mat-card-content>
         </mat-card>
         <a routerLink="/route1/component2">
         </a>
     </mat-grid-tile>
-    <mat-grid-tile>
+    <mat-grid-tile [rowspan]="2">
         <mat-card>
             <mat-card-content>
                 <a routerLink="/dynamic-form">
-                    ngOutletComponent + import
+                    Dynamic Configuration based lazyform rendering (ngOutletComponent + import)
+                    <mat-icon>warning</mat-icon>
                 </a>
             </mat-card-content>
         </mat-card>
     </mat-grid-tile>
-    <mat-grid-tile>
+    <mat-grid-tile [rowspan]="2">
         <mat-card>
             <mat-card-content>
                 <a routerLink="/dynamic-form/dynamic-lazy-loading">
-                    Advanced
+                    Dynamic Configuration based lazyform rendering (ng-dynamic-component library + import)
+                    <mat-icon>check_circle</mat-icon>
                 </a>
             </mat-card-content>
         </mat-card>
