@@ -1,10 +1,10 @@
-<mat-grid-list cols="2" rowHeight="2:1">
+<mat-grid-list cols="2" rowHeight="4:1">
     <mat-grid-tile [rowspan]="1">
         <mat-card>
             <mat-card-content>
                 <a routerLink="/dynamic-component-loading">
                     Dynamic Component Loading
-                    <mat-icon>check_circle</mat-icon>
+                    <mat-icon class="green">check_circle</mat-icon>
                 </a>
             </mat-card-content>
         </mat-card>
@@ -16,7 +16,7 @@
             <mat-card-content>
                 <a routerLink="/route1/component1">
                     Dynamic Component Loading (import + SCAM)
-                    <mat-icon>check_circle</mat-icon>
+                    <mat-icon class="green">check_circle</mat-icon>
                 </a>
             </mat-card-content>
         </mat-card>
@@ -28,7 +28,7 @@
             <mat-card-content>
                 <a routerLink="/dynamic-form">
                     Dynamic Configuration based lazyform rendering (ngOutletComponent + import)
-                    <mat-icon>warning</mat-icon>
+                    <mat-icon class="yellow">warning</mat-icon>
                 </a>
             </mat-card-content>
         </mat-card>
@@ -38,7 +38,7 @@
             <mat-card-content>
                 <a routerLink="/dynamic-form/dynamic-lazy-loading">
                     Dynamic Configuration based lazyform rendering (ng-dynamic-component library + import)
-                    <mat-icon>check_circle</mat-icon>
+                    <mat-icon class="green">check_circle</mat-icon>
                 </a>
             </mat-card-content>
         </mat-card>
