@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { BusinessCardComponent } from './lazy/business-card/business-card.component';
 import { UserListComponent } from './lazy/user-list/user-list.component';
 import { DynamicComponentLoadingComponent } from './dynamic-component-loading/dynamic-component-loading.component';
+import { DynamicComponentLoadingScamComponent } from './dynamic-component-loading-scam/dynamic-component-loading-scam.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { DynamicComponentLoadingComponent } from './dynamic-component-loading/dy
     BusinessCardComponent,
     UserListComponent,
     DynamicComponentLoadingComponent,
+    DynamicComponentLoadingScamComponent,
   ],
   imports: [
     BrowserModule,
