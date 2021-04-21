@@ -3,7 +3,6 @@ import { BusinessCardComponent } from '../lazy/business-card/business-card.compo
 import { UserListComponent } from '../lazy/user-list/user-list.component';
 
 const users = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
-const profile = { name: 'Pankaj' }
 
 @Component({
   selector: 'app-dynamic-component-loading',
@@ -14,6 +13,15 @@ export class DynamicComponentLoadingComponent implements OnInit {
 
   @ViewChild('dynamicComponent', { read: ViewContainerRef }) dynamicComponent: any;
 
+  profile = {
+    title: 'Shiba Inu',
+    subtitle: 'Dog Breed',
+    description: `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+    bred for hunting.`,
+    image: 'https://material.angular.io/assets/img/examples/shiba2.jpg'
+  }
+
   constructor(
     private factoryResolver: ComponentFactoryResolver
   ) { }
@@ -22,7 +30,7 @@ export class DynamicComponentLoadingComponent implements OnInit {
     this.dynamicComponent.clear();
     const compFactory = this.factoryResolver.resolveComponentFactory(BusinessCardComponent);
     const compRef = this.dynamicComponent.createComponent(compFactory);
-    compRef.profile = {}
+    compRef.instance.profile = this.profile;
   }
 
   showUserList() {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-business-card',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./business-card.component.scss']
 })
 export class BusinessCardComponent implements OnInit {
+
+  @Input() profile!: any;
 
   constructor() { }
 
