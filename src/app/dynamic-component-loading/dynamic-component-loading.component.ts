@@ -27,17 +27,21 @@ export class DynamicComponentLoadingComponent implements OnInit {
   ) { }
 
   showBusinessCard() {
-    this.dynamicComponent.clear();
+    this.clear();
     const compFactory = this.factoryResolver.resolveComponentFactory(BusinessCardComponent);
     const compRef = this.dynamicComponent.createComponent(compFactory);
     compRef.instance.profile = this.profile;
   }
 
   showUserList() {
-    this.dynamicComponent.clear();
+    this.clear();
     const compFactory = this.factoryResolver.resolveComponentFactory(UserListComponent);
     const compRef = this.dynamicComponent.createComponent(compFactory);
     compRef.instance.users = users;
+  }
+
+  clear() {
+    this.dynamicComponent.clear();
   }
 
   ngOnInit(): void {
