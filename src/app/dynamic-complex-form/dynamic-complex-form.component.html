@@ -1,10 +1,13 @@
-<h3>Feedback Form</h3>
-<div [formGroup]="feedbackForm">
+<form [formGroup]="feedbackForm" (ngSubmit)="submit()">
+    <h3>Feedback Form</h3>
     <div *ngFor="let control of controls">
-        <ng-template [ngComponentOutlet]="control.component | async"
+        <ng-template [ngComponentOutlet]="componentsMap[control.type] | async"
             [ndcDynamicInputs]="control.inputs"
         ></ng-template>
     </div>
-</div>
+    <button mat-raised-button>
+        Submit
+    </button>
+</form>
 
 {{ feedbackForm.value | json }}

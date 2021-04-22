@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 interface Controls{
-  component?: Promise<any>|null, 
+  type: string, 
   inputs: {
     value: any;
     formControlName: any;
-    group: FormGroup
+    group: FormGroup,
+    options?: any;
   },
 }
 
@@ -19,20 +20,18 @@ export class DynamicComplexFormComponent implements OnInit {
 
   feedbackForm = new FormGroup({});
 
+  componentsMap: {[key: string]: Promise<any>|null} = {
+    currency: import('./../controls/currency/currency.component').then(m => m.CurrencyComponent),
+    number: import('./../controls/number/number.component').then(m => m.NumberComponent),
+    select: import('./../controls/select/select.component').then(m => m.SelectComponent),
+    slider: import('./../controls/slider/slider.component').then(m => m.SliderComponent),
+  };
+
   controls: Controls[] = [
-    { component: import('./../controls/currency/currency.component').then(m => m.CurrencyComponent),
-        inputs: {
-          value: 1,
-          formControlName: 'price',
-          group: this.feedbackForm
-          // get valueAccessor() { debugger;
-          //   return this.feedbackForm.get('price')
-          // } 
-        }
-    },
-    // { component: import('./../controls/number/number.component').then(m => m.NumberComponent), value: 1, inputs: {formControlName: 'age'}  },
-    // { component: import('./../controls/select/select.component').then(m => m.SelectComponent), value: 1, inputs: {options: ['Mumbai'], formControlName: 'city'} },
-    // { component: import('./../controls/slider/slider.component').then(m => m.SliderComponent), value: 1, inputs: {formControlName: 'rating'}  },
+    { type: 'currency', inputs: { value: 1, formControlName: 'price', group: this.feedbackForm }},
+    { type: 'number', inputs: {formControlName: 'age', value: 1, group: this.feedbackForm} },
+    { type: 'select', inputs: {options: ['Mumbai'], formControlName: 'city', value: 1, group: this.feedbackForm} },
+    { type: 'slider', inputs: {formControlName: 'rating', value: 1, group: this.feedbackForm}  },
   ];
 
   constructor() { }
@@ -42,6 +41,10 @@ export class DynamicComplexFormComponent implements OnInit {
       this.feedbackForm.addControl(control.inputs.formControlName, new FormControl())
       console.log(this.feedbackForm.get(control.inputs.formControlName));
     });
+  }
+
+  submit() {
+    console.log('feedbackForm value', this.feedbackForm.value);
   }
 
   async ngOnInit() {
