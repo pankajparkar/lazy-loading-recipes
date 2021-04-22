@@ -1,6 +1,6 @@
 <h3>Feedback Form</h3>
 <form>
-    <ng-container *ngFor="let control of controls">
+    <div *ngFor="let control of controls">
         <ng-container *ngComponentOutlet="control.component | async"></ng-container>
-    </ng-container>
+    </div>
 </form>
