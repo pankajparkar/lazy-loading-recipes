@@ -12,6 +12,7 @@ import { BusinessCardComponent } from './lazy/business-card/business-card.compon
 import { UserListComponent } from './lazy/user-list/user-list.component';
 import { DynamicComponentLoadingComponent } from './dynamic-component-loading/dynamic-component-loading.component';
 import { DynamicComponentLoadingScamComponent } from './dynamic-component-loading-scam/dynamic-component-loading-scam.component';
+import { DynamicFormRenderingComponent } from './dynamic-form-rendering/dynamic-form-rendering.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { DynamicComponentLoadingScamComponent } from './dynamic-component-loadin
     UserListComponent,
     DynamicComponentLoadingComponent,
     DynamicComponentLoadingScamComponent,
+    DynamicFormRenderingComponent,
   ],
   imports: [
     BrowserModule,
