@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { 
   ChangeDetectionStrategy, Component, OnInit, Self, NgModule, Input, Optional
 } from '@angular/core';
-import { ControlValueAccessor, NgControl } from '@angular/forms';
+import { ControlValueAccessor, FormControl, FormGroup, FormsModule, NgControl, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { Subscription } from 'rxjs';
@@ -15,11 +15,15 @@ import { Subscription } from 'rxjs';
 })
 export class SelectComponent implements OnInit, ControlValueAccessor {
 
-  @Input() component!: any;
-  @Input() placeholder = 'Enter a value';
+ // @Input() valueAccessor: ControlValueAccessor | null;
+ @Input() group: FormGroup = new FormGroup({});
+ @Input() formControlName!: string;
+ @Input() placeholder = 'Enter a value';
+ @Input() options = [];
 
-  subscriptions: Subscription[] = [];
-  options = [];
+ control!: FormControl;
+
+ subscriptions: Subscription[] = [];
 
   constructor(
     @Self() @Optional() public ngControl: NgControl,
@@ -39,11 +43,12 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
   setDisabledState?(_: boolean) { }
 
   ngOnInit(): void {
+    this.control = this.group.get(this.formControlName) as FormControl;
   }
 }
 
 @NgModule({
-  imports: [CommonModule,MatFormFieldModule, MatSelectModule],
+  imports: [CommonModule,MatFormFieldModule, MatSelectModule, FormsModule, ReactiveFormsModule],
   declarations: [SelectComponent],
   exports: [SelectComponent]
 })

@@ -28,9 +28,9 @@ export class DynamicComplexFormComponent implements OnInit {
   };
 
   controls: Controls[] = [
-    { type: 'currency', inputs: { value: 1, formControlName: 'price', group: this.feedbackForm }},
-    { type: 'number', inputs: {formControlName: 'age', value: 1, group: this.feedbackForm} },
-    { type: 'select', inputs: {options: ['Mumbai'], formControlName: 'city', value: 1, group: this.feedbackForm} },
+    { type: 'currency', inputs: { value: 1000, formControlName: 'price', group: this.feedbackForm }},
+    { type: 'number', inputs: {formControlName: 'age', value: 100, group: this.feedbackForm} },
+    { type: 'select', inputs: {options: ['Mumbai', 'Pune', 'Delhi'], formControlName: 'city', value: 'Mumbai', group: this.feedbackForm} },
     { type: 'slider', inputs: {formControlName: 'rating', value: 1, group: this.feedbackForm}  },
   ];
 
@@ -38,7 +38,7 @@ export class DynamicComplexFormComponent implements OnInit {
 
   createForm(controls: Controls[] = []) {
     controls.forEach(control => {
-      this.feedbackForm.addControl(control.inputs.formControlName, new FormControl())
+      this.feedbackForm.addControl(control.inputs.formControlName, new FormControl(control.inputs.value || ''))
       console.log(this.feedbackForm.get(control.inputs.formControlName));
     });
   }

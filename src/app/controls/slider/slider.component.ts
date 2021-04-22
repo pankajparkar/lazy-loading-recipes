@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { 
   ChangeDetectionStrategy, Component, OnInit, Self, NgModule, Input, Optional
 } from '@angular/core';
-import { ControlValueAccessor, NgControl } from '@angular/forms';
+import { ControlValueAccessor, FormControl, FormGroup, FormsModule, NgControl, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { Subscription } from 'rxjs';
@@ -15,11 +15,14 @@ import {MatSliderModule} from '@angular/material/slider';
 })
 export class SliderComponent implements OnInit {
 
-  @Input() component!: any;
+  @Input() group: FormGroup = new FormGroup({});
+  @Input() formControlName!: string;
   @Input() placeholder = 'Enter a value';
-
+  @Input() options = [];
+ 
+  control!: FormControl;
+ 
   subscriptions: Subscription[] = [];
-  options = [];
 
   constructor(
     @Self() @Optional() public ngControl: NgControl,
@@ -39,11 +42,12 @@ export class SliderComponent implements OnInit {
   setDisabledState?(_: boolean) { }
 
   ngOnInit(): void {
+    this.control = this.group.get(this.formControlName) as FormControl;
   }
 }
 
 @NgModule({
-  imports: [CommonModule, MatFormFieldModule, MatSliderModule],
+  imports: [CommonModule, MatFormFieldModule, MatSliderModule, FormsModule, ReactiveFormsModule],
   declarations: [SliderComponent],
   exports: [SliderComponent]
 })
