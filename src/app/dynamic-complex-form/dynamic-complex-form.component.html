@@ -1,5 +1,4 @@
-Component rendered dynamically with lazy loading passing inputs
-
+<h3>Feedback Form</h3>
 <div [formGroup]="feedbackForm">
     <div *ngFor="let control of controls">
         <ng-template [ngComponentOutlet]="control.component | async"

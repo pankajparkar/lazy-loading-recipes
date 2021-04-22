@@ -1,47 +1,71 @@
 <mat-grid-list cols="2" rowHeight="4:1">
-    <mat-grid-tile [rowspan]="1">
+    <mat-grid-tile [rowspan]="2">
         <mat-card>
-            <mat-card-content>
+            <mat-card-header>
+              <mat-card-title>
                 <a routerLink="/dynamic-component-loading">
                     Dynamic Component Loading
                     <mat-icon class="green">check_circle</mat-icon>
                 </a>
-            </mat-card-content>
-        </mat-card>
-        <a routerLink="/dynamic-component-loading">
-        </a>
-    </mat-grid-tile>
-    <mat-grid-tile [rowspan]="1">
-        <mat-card>
+              </mat-card-title>
+            </mat-card-header>
             <mat-card-content>
-                <a routerLink="/dynamic-component-loading-scam">
-                    Dynamic Component Loading (import + SCAM)
-                    <mat-icon class="green">check_circle</mat-icon>
-                </a>
-            </mat-card-content>
-        </mat-card>
-        <a routerLink="/route1/component2">
-        </a>
-    </mat-grid-tile>
-    <mat-grid-tile [rowspan]="2">
-        <mat-card>
-            <mat-card-content>
-                <a routerLink="/dynamic-simple-form">
-                    Config based simple form
-                    <mat-icon class="yellow">warning</mat-icon>
-                </a>
-                (ngOutletComponent + import)
+              <p>
+                Load component using Factory Resolver and inject the imported component directly to the DOM.
+              </p>
             </mat-card-content>
         </mat-card>
     </mat-grid-tile>
     <mat-grid-tile [rowspan]="2">
         <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    <a routerLink="/dynamic-component-loading-scam">
+                        import + SCAM
+                        <mat-icon class="green">check_circle</mat-icon>
+                    </a>
+                </mat-card-title>
+            </mat-card-header>
             <mat-card-content>
-                <a routerLink="/dynamic-complex-form">
-                    Config based complex form
-                    <mat-icon class="green">check_circle</mat-icon>
-                </a>
-                (ng-dynamic-component library + import)
+                <p>
+                    Using SCAM (Single Component Angular Module) pattern, we will import the component as an when needed.
+                    And will lazily load the same onto Page.
+                </p>
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [rowspan]="2">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    <a routerLink="/dynamic-simple-form">
+                        Config based simple form
+                        <mat-icon class="yellow">warning</mat-icon>
+                    </a>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>
+                    We're extended the last implementation logic. Now we used <b>"SCAM + import + ngComponentOutlet"</b> to add component on DOM.
+                </p>
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [rowspan]="2">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    <a routerLink="/dynamic-complex-form">
+                        Config based complex form
+                        <mat-icon class="green">check_circle</mat-icon>
+                    </a>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>
+                    Now complete form will be rendered based on configuration provided from the server.
+                    <b>"ng-dynamic-component + import + SCAM"</b>
+                </p>
             </mat-card-content>
         </mat-card>
     </mat-grid-tile>
