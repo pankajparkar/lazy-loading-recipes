@@ -16,6 +16,10 @@ export class DynamicSimpleFormComponent implements OnInit {
 
   constructor() { }
 
+  submit() {
+    console.log('Called');
+  }
+
   ngOnInit(): void {
   }
 
