@@ -15,7 +15,7 @@ export class DynamicComponentLoadingScamComponent implements OnInit {
 
   async loadWeatherWidget() {
     this.clear();
-    const weatherComponent = await import('../weather-forecast/dashboard/dashboard.component').then(i => i.DashboardComponent);
+    const weatherComponent = await import('../weather-forecast/weather-dashboard/weather-dashboard.component').then(i => i.WeatherDashboardComponent);
     const weatherForecastWidget = this.factoryResolver.resolveComponentFactory(weatherComponent);
     const componentRef = this.container.createComponent(weatherForecastWidget);
     componentRef.instance.headingStart = 'Just for fun';

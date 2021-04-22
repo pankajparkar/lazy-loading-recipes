@@ -2,16 +2,12 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { WeatherService } from '../services/weather.service';
 import { LocationService } from '../services/location.service';
 
-export interface DynamicComponent {
-
-}
-
 @Component({
-  selector: 'wc-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'wc-weather-dashboard',
+  templateUrl: './weather-dashboard.component.html',
+  styleUrls: ['./weather-dashboard.component.css']
 })
-export class DashboardComponent implements OnInit, OnDestroy, DynamicComponent {
+export class WeatherDashboardComponent implements OnInit, OnDestroy {
 
   @Input() headingStart = 'Weather Forecast in';
 
@@ -58,7 +54,7 @@ import { FiltersComponent } from '../filters/filters.component';
 
 @NgModule({
   declarations: [
-    DashboardComponent,
+    WeatherDashboardComponent,
     FiltersComponent,
     WeatherForecastComponent,
     WeatherForecastDetailsComponent,
@@ -72,6 +68,6 @@ import { FiltersComponent } from '../filters/filters.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  exports: [DashboardComponent]
+  exports: [WeatherDashboardComponent]
 })
 export class WeatherForecastModule { }
