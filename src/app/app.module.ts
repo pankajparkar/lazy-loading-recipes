@@ -14,6 +14,7 @@ import { DynamicComponentLoadingComponent } from './dynamic-component-loading/dy
 import { DynamicComponentLoadingScamComponent } from './dynamic-component-loading-scam/dynamic-component-loading-scam.component';
 import { DynamicSimpleFormComponent } from './dynamic-simple-form/dynamic-simple-form.component';
 import { DynamicComplexFormComponent } from './dynamic-complex-form/dynamic-complex-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,8 @@ import { DynamicComplexFormComponent } from './dynamic-complex-form/dynamic-comp
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     CustomMaterialModule,
     HttpClientModule,

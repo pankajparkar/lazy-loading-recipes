@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { 
   ChangeDetectionStrategy, Component, OnInit, Self, NgModule, Input, Optional
 } from '@angular/core';
-import { ControlValueAccessor, NgControl } from '@angular/forms';
+import { ControlValueAccessor, FormControl, FormGroup, FormsModule, NgControl, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Subscription } from 'rxjs';
@@ -15,8 +15,12 @@ import { Subscription } from 'rxjs';
 })
 export class CurrencyComponent implements OnInit, ControlValueAccessor {
 
-  @Input() component!: any;
+  // @Input() valueAccessor: ControlValueAccessor | null;
+  @Input() group: FormGroup = new FormGroup({});
+  @Input() formControlName!: string;
   @Input() placeholder = 'Enter a value';
+
+  control!: FormControl;
 
   subscriptions: Subscription[] = [];
   options = [];
@@ -27,6 +31,9 @@ export class CurrencyComponent implements OnInit, ControlValueAccessor {
     if (this.ngControl) {
       this.ngControl.valueAccessor = this;
     }
+    // if (this.valueAccessor) {
+    //   this.ngControl.valueAccessor =  this.valueAccessor;
+    // }
   }
 
   //ControlValueAccessor interface
@@ -39,6 +46,7 @@ export class CurrencyComponent implements OnInit, ControlValueAccessor {
   setDisabledState?(_: boolean) { }
 
   ngOnInit(): void {
+    this.control = this.group.get(this.formControlName) as FormControl;
   }
 }
 
@@ -48,6 +56,8 @@ export class CurrencyComponent implements OnInit, ControlValueAccessor {
     CommonModule,
     MatFormFieldModule,
     MatInputModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   declarations: [CurrencyComponent],
   exports: [CurrencyComponent]

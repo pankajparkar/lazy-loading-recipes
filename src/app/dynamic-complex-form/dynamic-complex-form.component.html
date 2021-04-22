@@ -1,10 +1,11 @@
 Component rendered dynamically with lazy loading passing inputs
 
-<ul>
+<ul [formGroup]="feedbackForm">
     <li *ngFor="let control of controls">
         <ng-template [ngComponentOutlet]="control.component | async"
             [ndcDynamicInputs]="control.inputs"
         ></ng-template>
-        {{ control.inputs | json }}
     </li>
 </ul>
+
+{{ feedbackForm.value | json }}
