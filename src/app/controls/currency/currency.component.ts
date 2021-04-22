@@ -3,8 +3,9 @@ import {
   ChangeDetectionStrategy, Component, OnInit, Self, NgModule, Input, Optional
 } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { Subscription } from 'rxjs';
-import { CustomMaterialModule } from 'src/app/custom-material/custom-material.module';
 
 @Component({
   selector: 'app-currency',
@@ -45,7 +46,8 @@ export class CurrencyComponent implements OnInit, ControlValueAccessor {
 @NgModule({
   imports: [
     CommonModule,
-    CustomMaterialModule
+    MatFormFieldModule,
+    MatInputModule,
   ],
   declarations: [CurrencyComponent],
   exports: [CurrencyComponent]
