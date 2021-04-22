@@ -2,7 +2,6 @@ Component rendered dynamically with lazy loading passing inputs
 
 <ul>
     <li *ngFor="let control of controls">
-        <!-- <ng-container *ngComponentOutlet="control.component" [ndcDynamicInputs]="control.inputs"></ng-container> -->
         <ng-template [ngComponentOutlet]="control.component | async"
             [ndcDynamicInputs]="control.inputs"
         ></ng-template>

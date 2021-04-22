@@ -1,1 +1,10 @@
-<p>dynamic-complex-form works!</p>
+Component rendered dynamically with lazy loading passing inputs
+
+<ul>
+    <li *ngFor="let control of controls">
+        <ng-template [ngComponentOutlet]="control.component | async"
+            [ndcDynamicInputs]="control.inputs"
+        ></ng-template>
+        {{ control.inputs | json }}
+    </li>
+</ul>
