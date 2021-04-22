@@ -15,6 +15,7 @@ import { DynamicComponentLoadingScamComponent } from './dynamic-component-loadin
 import { DynamicSimpleFormComponent } from './dynamic-simple-form/dynamic-simple-form.component';
 import { DynamicComplexFormComponent } from './dynamic-complex-form/dynamic-complex-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DynamicFormControlComponent } from './dynamic-form-control/dynamic-form-control.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DynamicComponentLoadingScamComponent,
     DynamicSimpleFormComponent,
     DynamicComplexFormComponent,
+    DynamicFormControlComponent,
   ],
   imports: [
     BrowserModule,
