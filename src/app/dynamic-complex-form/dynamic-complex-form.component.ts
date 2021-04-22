@@ -38,7 +38,10 @@ export class DynamicComplexFormComponent implements OnInit {
 
   createForm(controls: Controls[] = []) {
     controls.forEach(control => {
-      this.feedbackForm.addControl(control.inputs.formControlName, new FormControl(control.inputs.value || ''))
+      this.feedbackForm.addControl(
+        control.inputs.formControlName,
+        new FormControl(control.inputs.value || '')
+      );
       console.log(this.feedbackForm.get(control.inputs.formControlName));
     });
   }
