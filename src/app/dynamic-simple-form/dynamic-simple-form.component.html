@@ -1,1 +1,6 @@
-<p>dynamic-simple-form works!</p>
+<h3>Feedback Form</h3>
+<form>
+    <div *ngFor="let control of controls">
+        <ng-container *ngComponentOutlet="control.component | async"></ng-container>
+    </div>
+</form>
