@@ -43,7 +43,7 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
   setDisabledState?(_: boolean) { }
 
   ngOnInit(): void {
-    this.control = this.group.get(this.formControlName) as FormControl;
+    this.control = this.formControlName ?this.group.get(this.formControlName) as FormControl: new FormControl();;
   }
 }
 

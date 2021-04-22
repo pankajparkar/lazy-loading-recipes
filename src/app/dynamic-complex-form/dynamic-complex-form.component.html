@@ -1,5 +1,5 @@
 <form [formGroup]="feedbackForm" (ngSubmit)="submit()">
-    <h3>Feedback Form</h3>
+    <h3>Profile Form</h3>
     <div *ngFor="let control of controls">
         <ng-template [ngComponentOutlet]="componentsMap[control.type] | async"
             [ndcDynamicInputs]="control.inputs"
