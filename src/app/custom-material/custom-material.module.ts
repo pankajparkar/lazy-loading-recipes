@@ -23,6 +23,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSortModule} from '@angular/material/sort';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   exports: [
@@ -50,6 +51,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatSortModule,
     MatTooltipModule,
     MatToolbarModule,
+    MatFormFieldModule
   ]
 })
 export class CustomMaterialModule { }

@@ -6,6 +6,8 @@ import { DynamicLazyLoadingComponent } from './dynamic-lazy-loading/dynamic-lazy
 import { RouterModule } from '@angular/router';
 import { DynamicModule } from 'ng-dynamic-component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 const routes = [
   { path: 'dynamic-loading', component: DynamicLoadingComponent},
@@ -20,6 +22,8 @@ const routes = [
     DynamicModule,
     FormsModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
     RouterModule.forChild(routes)
   ]
 })
