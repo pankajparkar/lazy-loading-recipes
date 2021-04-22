@@ -1,24 +1,49 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, NgModule, OnInit } from '@angular/core';
+import { 
+  ChangeDetectionStrategy, Component, OnInit, Self, NgModule, Input, Optional
+} from '@angular/core';
+import { ControlValueAccessor, NgControl } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-select',
   templateUrl: './select.component.html',
-  styleUrls: ['./select.component.scss']
+  styleUrls: ['./select.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SelectComponent implements OnInit {
+export class SelectComponent implements OnInit, ControlValueAccessor {
 
-  @Input() options: string[] = [];
+  @Input() component!: any;
+  @Input() placeholder = 'Enter a value';
 
-  constructor() { }
+  subscriptions: Subscription[] = [];
+  options = [];
+
+  constructor(
+    @Self() @Optional() public ngControl: NgControl,
+  ) {
+    if (this.ngControl) {
+      this.ngControl.valueAccessor = this;
+    }
+  }
+
+  //ControlValueAccessor interface
+  writeValue(_: any) {  }
+
+  registerOnChange(_: any) { }
+
+  registerOnTouched(_: any) { }
+
+  setDisabledState?(_: boolean) { }
 
   ngOnInit(): void {
   }
-
 }
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule,MatFormFieldModule, MatSelectModule],
   declarations: [SelectComponent],
   exports: [SelectComponent]
 })
